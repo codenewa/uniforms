@@ -81,6 +81,8 @@
     <Compile Include="Style\PlayerNumberStyle.cs" />
     <Compile Include="Style\TeamNameStyle.cs" />
     <Compile Include="Style\UniformStyle.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserType.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

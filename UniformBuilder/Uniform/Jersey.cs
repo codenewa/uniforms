@@ -8,6 +8,9 @@ namespace UniformBuilder.Uniform
     public class Jersey
     {
         public virtual Guid Id { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string Description { get; set; }
+        public virtual string Identifier { get; set; }
         public virtual Color BodyColor { get; set; }
         public virtual Color InsertsColor { get; set; }
         public virtual TeamNameSelection TeamName { get; set; }
