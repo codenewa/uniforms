@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB0AAA52-4A7B-4BEC-BFC6-D95E0AE9DE61}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UniformBuilder</RootNamespace>
+    <AssemblyName>UniformBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Uniform\Jersey.cs" />
+    <Compile Include="Uniform\NamePlateSelection.cs" />
+    <Compile Include="Uniform\PlayerNameSelection.cs" />
+    <Compile Include="Uniform\PlayerNumberSelection.cs" />
+    <Compile Include="Uniform\TeamNameSelection.cs" />
+    <Compile Include="Options\ApplicationType.cs" />
+    <Compile Include="Options\Arrangement.cs" />
+    <Compile Include="Options\AvailableColor.cs" />
+    <Compile Include="Options\AvailableFont.cs" />
+    <Compile Include="Options\AvailableFontSize.cs" />
+    <Compile Include="Options\NamePlateType.cs" />
+    <Compile Include="Options\Sport.cs" />
+    <Compile Include="Options\UniformPart.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Uniform\Roster.cs" />
+    <Compile Include="Style\Configuration\AConfiguration.cs" />
+    <Compile Include="Style\Configuration\ApplicationTypeConfiguration.cs" />
+    <Compile Include="Style\Configuration\ApplicationTypeConfigurationOption.cs" />
+    <Compile Include="Style\Configuration\ArrangementConfiguration.cs" />
+    <Compile Include="Style\Configuration\ArrangementConfigurationOption.cs" />
+    <Compile Include="Style\Configuration\ColorConfiguration.cs" />
+    <Compile Include="Style\Configuration\ColorConfigurationOption.cs" />
+    <Compile Include="Style\Configuration\FontConfiguration.cs" />
+    <Compile Include="Style\Configuration\FontConfigurationOption.cs" />
+    <Compile Include="Style\Configuration\FontSizeConfiguration.cs" />
+    <Compile Include="Style\Configuration\FontSizeConfigurationOption.cs" />
+    <Compile Include="Style\Configuration\LocationConfiguration.cs" />
+    <Compile Include="Style\Configuration\LocationConfigurationOption.cs" />
+    <Compile Include="Style\Configuration\NamePlateTypeConfiguration.cs" />
+    <Compile Include="Style\Configuration\NamePlateTypeConfigurationOption.cs" />
+    <Compile Include="Style\Style.cs" />
+    <Compile Include="Style\BaseStyle.cs" />
+    <Compile Include="Options\Location.cs" />
+    <Compile Include="Style\NamePlateStyle.cs" />
+    <Compile Include="Style\PlayerNameStyle.cs" />
+    <Compile Include="Style\PlayerNumberStyle.cs" />
+    <Compile Include="Style\TeamNameStyle.cs" />
+    <Compile Include="Style\UniformStyle.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JerseyUniformBuilder", "JerseyUniformBuilder\JerseyUniformBuilder.csproj", "{6B6D2704-8C91-446F-AC49-3F0399F51955}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniformBuilder", "UniformBuilder\UniformBuilder.csproj", "{AB0AAA52-4A7B-4BEC-BFC6-D95E0AE9DE61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniformBuilder.EF", "UniformBuilder.EF\UniformBuilder.EF.csproj", "{A8E3F831-95ED-46D7-AE33-3236E3B9532C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B6D2704-8C91-446F-AC49-3F0399F51955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B6D2704-8C91-446F-AC49-3F0399F51955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B6D2704-8C91-446F-AC49-3F0399F51955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B6D2704-8C91-446F-AC49-3F0399F51955}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB0AAA52-4A7B-4BEC-BFC6-D95E0AE9DE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB0AAA52-4A7B-4BEC-BFC6-D95E0AE9DE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB0AAA52-4A7B-4BEC-BFC6-D95E0AE9DE61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB0AAA52-4A7B-4BEC-BFC6-D95E0AE9DE61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8E3F831-95ED-46D7-AE33-3236E3B9532C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8E3F831-95ED-46D7-AE33-3236E3B9532C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8E3F831-95ED-46D7-AE33-3236E3B9532C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8E3F831-95ED-46D7-AE33-3236E3B9532C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
