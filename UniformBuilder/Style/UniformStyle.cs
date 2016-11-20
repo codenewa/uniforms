@@ -4,9 +4,8 @@ using UniformBuilder.Style.Configuration;
 
 namespace UniformBuilder.Style
 {
-    public class UniformStyle
+    public class UniformStyle: Root
     {
-        public virtual Guid Id { get; set; }
         public virtual string Name { get; set; }
         public virtual string Description { get; set; }
         public virtual Sport Sport { get; set; }
@@ -16,6 +15,7 @@ namespace UniformBuilder.Style
         public virtual TeamNameStyleConfiguration TeamNameStyle { get; set; }
         public virtual PlayerNumberStyle PlayerNumberStyle { get; set; }
         public virtual PlayerNameStyle PlayerNameStyle { get; set; }
+     
         
     }
 }

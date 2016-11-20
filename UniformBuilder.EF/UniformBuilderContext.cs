@@ -54,6 +54,9 @@ namespace UniformBuilder.EF
         public virtual IDbSet<PlayerNameStyle> PlayerNameStyles { get; set; }
         #endregion
 
+        #region System
+        public virtual IDbSet<User> Users { get; set; }
+        #endregion
 
         #region Jersey Context
         public virtual IDbSet<Jersey> Jerseys { get; set; }

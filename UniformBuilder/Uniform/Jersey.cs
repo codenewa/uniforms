@@ -5,8 +5,12 @@ using UniformBuilder.Utility;
 
 namespace UniformBuilder.Uniform
 {
-    public class Jersey
+    public class Jersey: Root
     {
+        public Jersey()
+        {
+            
+        }
         public virtual Guid Id { get; set; }
         public virtual string Name { get; set; }
         public virtual string Description { get; set; }
@@ -18,7 +22,7 @@ namespace UniformBuilder.Uniform
         public virtual PlayerNumberSelection PlayerNumber { get; set; }
 
         public virtual Jersey Create(Color color, Color insertColor, TeamNameSelection teamNameSelection, 
-            PlayerNameSelection playerNameSelection, PlayerNumberSelection numberSelection)
+            PlayerNameSelection playerNameSelection, PlayerNumberSelection numberSelection, User user)
         {
             return new Jersey()
             {
@@ -27,7 +31,11 @@ namespace UniformBuilder.Uniform
                 InsertsColor = insertColor,
                 TeamName = teamNameSelection,
                 PlayerName = playerNameSelection,
-                PlayerNumber = numberSelection
+                PlayerNumber = numberSelection,
+                LastUpdatedBy = user,
+                Creator = user,
+                CreateDate = DateTime.Now,
+                LastUpdateDate = DateTime.Now
             };
         }  
     }

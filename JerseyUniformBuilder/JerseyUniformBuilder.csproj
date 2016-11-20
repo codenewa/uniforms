@@ -175,14 +175,17 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Features\FeatureManager.cs" />
+    <Compile Include="Features\UniformStyles\UniformStylesManager.cs" />
+    <Compile Include="Features\Uniform\UniformBuilderViewModel.cs" />
+    <Compile Include="Features\Uniform\UniformManager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\JerseyPageViewModel.cs" />
+    <Compile Include="Models\JerseyBuilderViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\UniformStyles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -264,6 +267,16 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UniformBuilder.EF\UniformBuilder.EF.csproj">
+      <Project>{a8e3f831-95ed-46d7-ae33-3236e3b9532c}</Project>
+      <Name>UniformBuilder.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniformBuilder\UniformBuilder.csproj">
+      <Project>{ab0aaa52-4a7b-4bec-bfc6-d95e0ae9de61}</Project>
+      <Name>UniformBuilder</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

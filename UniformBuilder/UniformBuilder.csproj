@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdGenerator.cs" />
+    <Compile Include="Root.cs" />
     <Compile Include="Style\Configuration\AConfigurationOption.cs" />
     <Compile Include="Uniform\Jersey.cs" />
     <Compile Include="Uniform\NamePlateSelection.cs" />
@@ -73,7 +74,6 @@
     <Compile Include="Style\Configuration\LocationConfigurationOption.cs" />
     <Compile Include="Style\Configuration\NamePlateTypeConfiguration.cs" />
     <Compile Include="Style\Configuration\NamePlateTypeConfigurationOption.cs" />
-    <Compile Include="Style\Style.cs" />
     <Compile Include="Style\BaseStyle.cs" />
     <Compile Include="Options\Location.cs" />
     <Compile Include="Style\NamePlateStyle.cs" />

@@ -54,11 +54,25 @@
     <Compile Include="Migrations\201611201754205_InitialSetup.Designer.cs">
       <DependentUpon>201611201754205_InitialSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611201854571_addjerseynameAndDescription.cs" />
+    <Compile Include="Migrations\201611201854571_addjerseynameAndDescription.Designer.cs">
+      <DependentUpon>201611201854571_addjerseynameAndDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611201855576_addusers.cs" />
+    <Compile Include="Migrations\201611201855576_addusers.Designer.cs">
+      <DependentUpon>201611201855576_addusers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611201908211_AddUsersToStyleAndJersey.cs" />
+    <Compile Include="Migrations\201611201908211_AddUsersToStyleAndJersey.Designer.cs">
+      <DependentUpon>201611201908211_AddUsersToStyleAndJersey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Seeds\ApplicationTypesSeed.cs" />
     <Compile Include="Seeds\ArrangementSeed.cs" />
     <Compile Include="Seeds\ISeed.cs" />
+    <Compile Include="Seeds\TestUniformStyleSeed.cs" />
+    <Compile Include="Seeds\UserSeed.cs" />
     <Compile Include="UniformBuilderContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UniformRepository.cs" />
@@ -77,6 +91,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611201754205_InitialSetup.resx">
       <DependentUpon>201611201754205_InitialSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611201854571_addjerseynameAndDescription.resx">
+      <DependentUpon>201611201854571_addjerseynameAndDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611201855576_addusers.resx">
+      <DependentUpon>201611201855576_addusers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611201908211_AddUsersToStyleAndJersey.resx">
+      <DependentUpon>201611201908211_AddUsersToStyleAndJersey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
