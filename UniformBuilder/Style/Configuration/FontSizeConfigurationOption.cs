@@ -3,9 +3,8 @@ using UniformBuilder.Options;
 
 namespace UniformBuilder.Style.Configuration
 {
-    public class FontSizeConfigurationOption
+    public class FontSizeConfigurationOption : AConfigurationOption
     {
-        public Guid Id { get; set; }
-        public FontSize FontSize { get; set; }
+        public virtual FontSize FontSize { get; set; }
     }
 }

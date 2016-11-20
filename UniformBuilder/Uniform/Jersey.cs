@@ -1,20 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UniformBuilder.Options;
+using UniformBuilder.Style;
+using UniformBuilder.Utility;
 
 namespace UniformBuilder.Uniform
 {
     public class Jersey
     {
-        public Guid Id { get; set; }
-        public Color BodyColor { get; set; }
-        public Color InsertsColor { get; set; }
-        public TeamNameSelection TeamName { get; set; }
-        public PlayerNameSelection PlayerName { get; set; }
-        public PlayerNumberSelection PlayerNumber { get; set; }
-        
+        public virtual Guid Id { get; set; }
+        public virtual Color BodyColor { get; set; }
+        public virtual Color InsertsColor { get; set; }
+        public virtual TeamNameSelection TeamName { get; set; }
+        public virtual PlayerNameSelection PlayerName { get; set; }
+        public virtual PlayerNumberSelection PlayerNumber { get; set; }
+
+        public virtual Jersey Create(Color color, Color insertColor, TeamNameSelection teamNameSelection, 
+            PlayerNameSelection playerNameSelection, PlayerNumberSelection numberSelection)
+        {
+            return new Jersey()
+            {
+                Id = IdGenerator.NewId(),
+                BodyColor = color,
+                InsertsColor = insertColor,
+                TeamName = teamNameSelection,
+                PlayerName = playerNameSelection,
+                PlayerNumber = numberSelection
+            };
+        }  
     }
 }

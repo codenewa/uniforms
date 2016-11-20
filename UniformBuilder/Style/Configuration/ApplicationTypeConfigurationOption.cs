@@ -3,9 +3,8 @@ using UniformBuilder.Options;
 
 namespace UniformBuilder.Style.Configuration
 {
-    public class ApplicationTypeConfigurationOption
+    public class ApplicationTypeConfigurationOption: AConfigurationOption
     {
-        public Guid Id { get; set; }
-        public ApplicationType ApplicationType { get; set; }
+        public virtual ApplicationType ApplicationType { get; set; }
     }
 }

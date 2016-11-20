@@ -3,9 +3,8 @@ using UniformBuilder.Options;
 
 namespace UniformBuilder.Style.Configuration
 {
-    public class ArrangementConfigurationOption
+    public class ArrangementConfigurationOption: AConfigurationOption
     {
-        public Guid Id { get; set; }
-        public Arrangement Arrangement { get; set; }
+        public virtual Arrangement Arrangement { get; set; }
     }
 }

@@ -6,8 +6,8 @@ namespace UniformBuilder.Style
 {
     public class NamePlateStyle
     {
-        public Guid Id { get; set; }
-        public NamePlateTypeConfiguration Configuration { get; set; }
-        public ColorConfiguration ColorConfiguration { get; set; }
+        public virtual Guid Id { get; set; }
+        public virtual NamePlateTypeConfiguration Configuration { get; set; }
+        public virtual ColorConfiguration ColorConfiguration { get; set; }
     }
 }

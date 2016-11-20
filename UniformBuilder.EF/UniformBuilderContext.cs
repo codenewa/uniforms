@@ -1,4 +1,9 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using System.Linq.Expressions;
 using UniformBuilder.Uniform;
 using UniformBuilder.Options;
 using UniformBuilder.Style;
@@ -8,46 +13,62 @@ namespace UniformBuilder.EF
 {
     public class UniformBuilderContext: DbContext
     {
-        public UniformBuilderContext(): base("name=UniformBuilder"){}
+
+        public UniformBuilderContext() : base("name=UniformBuilder")
+        {
+            this.Configuration.ProxyCreationEnabled = false;
+        }
         #region Options
-        public IDbSet<Sport> Sports { get; set; }
-        public IDbSet<ApplicationType> ApplicationTypes { get; set; }
-        public IDbSet<Arrangement> TeamNameArrangements { get; set; }
-        public IDbSet<Color> AvailableColors { get; set; }
-        public IDbSet<Font> AvailabelFonts { get; set; }
-        public IDbSet<FontSize> AvailableFontSizes { get; set; }
-        public IDbSet<Location> PlayerNumberLocations { get; set; }
-        public IDbSet<NamePlateType> NamePlateTypes { get; set; }
+        public virtual IDbSet<Sport> Sports { get; set; }
+        public virtual IDbSet<ApplicationType> ApplicationTypes { get; set; }
+        public virtual IDbSet<Arrangement> TeamNameArrangements { get; set; }
+        public virtual IDbSet<Color> AvailableColors { get; set; }
+        public virtual IDbSet<Font> AvailabelFonts { get; set; }
+        public virtual IDbSet<FontSize> AvailableFontSizes { get; set; }
+        public virtual IDbSet<Location> PlayerNumberLocations { get; set; }
+        public virtual IDbSet<NamePlateType> NamePlateTypes { get; set; }
 
         #endregion
 
         #region Configurations
-        public IDbSet<ApplicationTypeConfiguration> ApplicationTypeConfigurations { get; set; }
-        public IDbSet<ArrangementConfiguration> ArrangementConfigurations { get; set; }
-        public IDbSet<ColorConfiguration> ColorConfigurations { get; set; }
-        public IDbSet<FontConfiguration> FontConfigurations { get; set; }
-        public IDbSet<FontSizeConfiguration> FontSizeConfigurations { get; set; }
-        public IDbSet<LocationConfiguration> LocationConfigurations { get; set; }
-        public IDbSet<NamePlateTypeConfiguration> NamePlateTypeConfigurations { get; set; }
-        public IDbSet<ArrangementConfigurationOption> ArrangementConfigurationOptions { get; set; }
-        public IDbSet<ColorConfigurationOption> ColorConfigurationOptions { get; set; }
-        public IDbSet<FontConfigurationOption> FontConfigurationOptions { get; set; }
-        public IDbSet<FontSizeConfigurationOption> FontSizeConfigurationOptions { get; set; }
-        public IDbSet<LocationConfigurationOption> LocationConfigurationOptions { get; set; }
-        public IDbSet<ApplicationTypeConfigurationOption> ApplicationTypeConfigurationOptions { get; set; }
-        public IDbSet<NamePlateTypeConfigurationOption> NamePlateTypeConfigurationOptions { get; set; }
+        public virtual IDbSet<ApplicationTypeConfiguration> ApplicationTypeConfigurations { get; set; }
+        public virtual IDbSet<ArrangementConfiguration> ArrangementConfigurations { get; set; }
+        public virtual IDbSet<ColorConfiguration> ColorConfigurations { get; set; }
+        public virtual IDbSet<FontConfiguration> FontConfigurations { get; set; }
+        public virtual IDbSet<FontSizeConfiguration> FontSizeConfigurations { get; set; }
+        public virtual IDbSet<LocationConfiguration> LocationConfigurations { get; set; }
+        public virtual IDbSet<NamePlateTypeConfiguration> NamePlateTypeConfigurations { get; set; }
+        public virtual IDbSet<ArrangementConfigurationOption> ArrangementConfigurationOptions { get; set; }
+        public virtual IDbSet<ColorConfigurationOption> ColorConfigurationOptions { get; set; }
+        public virtual IDbSet<FontConfigurationOption> FontConfigurationOptions { get; set; }
+        public virtual IDbSet<FontSizeConfigurationOption> FontSizeConfigurationOptions { get; set; }
+        public virtual IDbSet<LocationConfigurationOption> LocationConfigurationOptions { get; set; }
+        public virtual IDbSet<ApplicationTypeConfigurationOption> ApplicationTypeConfigurationOptions { get; set; }
+        public virtual IDbSet<NamePlateTypeConfigurationOption> NamePlateTypeConfigurationOptions { get; set; }
         #endregion
 
         #region StyleConfigurations
-        public IDbSet<UniformStyle> UniformStyles { get; set; }
-        public IDbSet<TeamNameStyleConfiguration> TeamNameStyles { get; set; }
-        public IDbSet<PlayerNumberStyle> PlayerNumberStyles { get; set; }
-        public IDbSet<PlayerNameStyle> PlayerNameStyles { get; set; }
+        public virtual IDbSet<UniformStyle> UniformStyles { get; set; }
+        public virtual IDbSet<TeamNameStyleConfiguration> TeamNameStyles { get; set; }
+        public virtual IDbSet<PlayerNumberStyle> PlayerNumberStyles { get; set; }
+        public virtual IDbSet<PlayerNameStyle> PlayerNameStyles { get; set; }
         #endregion
 
 
         #region Jersey Context
-        public IDbSet<Uniform.Jersey> Jersies { get; set; }
+        public virtual IDbSet<Jersey> Jerseys { get; set; }
         #endregion
+
+        public virtual void AddOrUpdate<TE>(Expression<Func<TE, object>> identifierExpression,
+            IList<TE> list) where TE : class
+        {
+            Set<TE>().AddOrUpdate(identifierExpression, list.ToArray());
+        }
+
+        public virtual void Save()
+        {
+            this.SaveChanges();
+        }
+
     }
 }

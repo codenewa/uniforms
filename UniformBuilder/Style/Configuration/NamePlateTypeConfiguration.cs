@@ -4,6 +4,6 @@ namespace UniformBuilder.Style.Configuration
 {
     public class NamePlateTypeConfiguration: AConfiguration
     {
-        public IList<NamePlateTypeConfigurationOption> NamePlateTypes { get; set; }
+        public virtual IList<NamePlateTypeConfigurationOption> NamePlateTypes { get; set; }
     }
 }

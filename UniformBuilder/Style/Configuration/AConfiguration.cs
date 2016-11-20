@@ -4,7 +4,7 @@ namespace UniformBuilder.Style.Configuration
 {
     public abstract class AConfiguration
     {
-        public Guid Id { get; set; }
-        public bool IsConfigurable { get; set; }
+        public virtual Guid Id { get; set; }
+        public virtual bool IsConfigurable { get; set; }
     }
 }

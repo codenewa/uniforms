@@ -1,11 +1,12 @@
 ﻿using UniformBuilder.Options;
+using UniformBuilder.Style.Configuration;
 
 namespace UniformBuilder.Style
 {
     public class PlayerNumberStyle: BaseStyle
     {
-        public bool IsOptional { get; set; }
-        public string Range { get; set; }
-        public Style<Location> LocationOptions { get; set; }
+        public virtual bool IsOptional { get; set; }
+        public virtual string Range { get; set; }
+        public virtual LocationConfiguration LocationConfiguration { get; set; }
     }
 }

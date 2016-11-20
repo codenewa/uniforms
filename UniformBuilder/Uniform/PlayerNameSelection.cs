@@ -9,12 +9,12 @@ namespace UniformBuilder.Uniform
 {
     public class PlayerNameSelection
     {
-        public Guid Id { get; set; }
-        public NamePlateSelection NamePlate { get; set; }
-        public string Name { get; set; }
-        public ApplicationType ApplicationType { get; set; }
-        public Color Color { get; set; }
-        public Font Font { get; set; }
-        public FontSize FontSize { get; set; }
+        public virtual Guid Id { get; set; }
+        public virtual NamePlateSelection NamePlate { get; set; }
+        public virtual string Name { get; set; }
+        public virtual ApplicationType ApplicationType { get; set; }
+        public virtual Color Color { get; set; }
+        public virtual Font Font { get; set; }
+        public virtual FontSize FontSize { get; set; }
     }
 }

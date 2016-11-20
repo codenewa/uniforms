@@ -9,12 +9,12 @@ namespace UniformBuilder.Uniform
 {
     public class PlayerNumberSelection
     {
-        public Guid Id { get; set; }
-        public int Number { get; set; }
-        public Location Location { get; set; }
-        public ApplicationType ApplicationType { get; set; }
-        public Color Color { get; set; }
-        public Font Font { get; set; }
-        public FontSize FontSize { get; set; }
+        public virtual Guid Id { get; set; }
+        public virtual int Number { get; set; }
+        public virtual Location Location { get; set; }
+        public virtual ApplicationType ApplicationType { get; set; }
+        public virtual Color Color { get; set; }
+        public virtual Font Font { get; set; }
+        public virtual FontSize FontSize { get; set; }
     }
 }

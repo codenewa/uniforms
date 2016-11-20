@@ -4,6 +4,6 @@ namespace UniformBuilder.Style.Configuration
 {
     public class ArrangementConfiguration: AConfiguration
     {
-        public IList<ArrangementConfigurationOption> Arrangements { get; set; }
+        public virtual IList<ArrangementConfigurationOption> Arrangements { get; set; }
     }
 }

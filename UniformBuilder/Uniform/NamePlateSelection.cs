@@ -9,8 +9,8 @@ namespace UniformBuilder.Uniform
 {
     public class NamePlateSelection
     {
-        public Guid Id { get; set; }
-        public NamePlateType NamePlateType { get; set; }
-        public Color Color { get; set; }
+        public virtual Guid Id { get; set; }
+        public virtual NamePlateType NamePlateType { get; set; }
+        public virtual Color Color { get; set; }
     }
 }

@@ -4,7 +4,7 @@ namespace UniformBuilder.Options
 {
     public class FontSize
     {
-        public Guid Id { get; set; }
-        public string Size { get; set; }
+        public virtual Guid Id { get; set; }
+        public virtual string Size { get; set; }
     }
 }

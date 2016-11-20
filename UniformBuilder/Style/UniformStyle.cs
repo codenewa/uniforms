@@ -6,16 +6,16 @@ namespace UniformBuilder.Style
 {
     public class UniformStyle
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public Sport Sport { get; set; }
-        public ColorConfiguration BodyColorConfiguration { get; set; }
-        public ColorConfiguration InsertsColorConfiguration { get; set; }
-        public bool IsAvailable { get; set; }
-        public TeamNameStyleConfiguration TeamNameStyle { get; set; }
-        public PlayerNumberStyle PlayerNumberStyle { get; set; }
-        public PlayerNameStyle PlayerNameStyle { get; set; }
+        public virtual Guid Id { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string Description { get; set; }
+        public virtual Sport Sport { get; set; }
+        public virtual ColorConfiguration BodyColorConfiguration { get; set; }
+        public virtual ColorConfiguration InsertsColorConfiguration { get; set; }
+        public virtual bool IsAvailable { get; set; }
+        public virtual TeamNameStyleConfiguration TeamNameStyle { get; set; }
+        public virtual PlayerNumberStyle PlayerNumberStyle { get; set; }
+        public virtual PlayerNameStyle PlayerNameStyle { get; set; }
         
     }
 }

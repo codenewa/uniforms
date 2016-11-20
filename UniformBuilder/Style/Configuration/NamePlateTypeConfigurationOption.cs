@@ -3,9 +3,8 @@ using UniformBuilder.Options;
 
 namespace UniformBuilder.Style.Configuration
 {
-    public class NamePlateTypeConfigurationOption
+    public class NamePlateTypeConfigurationOption : AConfigurationOption
     {
-        public Guid Id { get; set; }
-        public NamePlateType NamePlateType { get; set; }
+        public virtual NamePlateType NamePlateType { get; set; }
     }
 }

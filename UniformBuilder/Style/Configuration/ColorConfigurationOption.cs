@@ -3,9 +3,8 @@ using UniformBuilder.Options;
 
 namespace UniformBuilder.Style.Configuration
 {
-    public class ColorConfigurationOption
+    public class ColorConfigurationOption : AConfigurationOption
     {
-        public Guid Id { get; set; }
-        public Color Color { get; set; }
+        public virtual Color Color { get; set; }
     }
 }

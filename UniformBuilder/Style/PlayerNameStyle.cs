@@ -2,9 +2,9 @@
 {
     public class PlayerNameStyle: BaseStyle
     {
-        public bool IsOptional { get; set; }
-        public int NameMaxLength { get; set; }
-        public bool ConfigureNamePlate { get; set; }
-        public NamePlateStyle NamePlateStyle { get; set; }
+        public virtual bool IsOptional { get; set; }
+        public virtual int NameMaxLength { get; set; }
+        public virtual bool ConfigureNamePlate { get; set; }
+        public virtual NamePlateStyle NamePlateStyle { get; set; }
     }
 }

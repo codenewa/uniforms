@@ -1,3 +1,8 @@
+using System;
+using System.Linq;
+using System.Reflection;
+using UniformBuilder.EF.Seeds;
+
 namespace UniformBuilder.EF.Migrations
 {
     using System.Data.Entity.Migrations;
@@ -9,20 +14,17 @@ namespace UniformBuilder.EF.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(UniformBuilder.EF.UniformBuilderContext context)
+        protected override void Seed(UniformBuilderContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var seeds = from t in Assembly.GetExecutingAssembly().GetTypes()
+                        where t.GetInterfaces().Contains(typeof(ISeed))
+                        select Activator.CreateInstance(t) as ISeed;
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            foreach (var seed in seeds)
+            {
+                seed.RunSeed(context);
+            }
+            context.Save();
         }
     }
 }

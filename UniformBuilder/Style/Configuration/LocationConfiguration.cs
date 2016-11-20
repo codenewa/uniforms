@@ -4,6 +4,6 @@ namespace UniformBuilder.Style.Configuration
 {
     public class LocationConfiguration: AConfiguration
     {
-        public IList<LocationConfigurationOption> Locations { get; set; }
+        public virtual IList<LocationConfigurationOption> Locations { get; set; }
     }
 }

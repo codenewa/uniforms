@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UniformBuilder</RootNamespace>
     <AssemblyName>UniformBuilder</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IdGenerator.cs" />
+    <Compile Include="Style\Configuration\AConfigurationOption.cs" />
     <Compile Include="Uniform\Jersey.cs" />
     <Compile Include="Uniform\NamePlateSelection.cs" />
     <Compile Include="Uniform\PlayerNameSelection.cs" />

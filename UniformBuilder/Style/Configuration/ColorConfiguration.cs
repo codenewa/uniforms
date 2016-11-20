@@ -4,6 +4,6 @@ namespace UniformBuilder.Style.Configuration
 {
     public class ColorConfiguration: AConfiguration
     {
-        public IList<ColorConfigurationOption> Colors { get; set; }
+        public virtual IList<ColorConfigurationOption> Colors { get; set; }
     }
 }
