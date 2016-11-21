@@ -17,19 +17,11 @@ namespace UniformBuilder.MVC.Controllers
         [Route("GetNewJersey/{id}")]
         public ActionResult GetNewJersey(string id)
         {
-            
-            Guid styleId;
-            if (Guid.TryParse(id, out styleId))
+            Guid styleId = Guid.Parse(id);
+            using (var factory = new UniformBuilderFactory())
             {
-                using (var factory = new UniformBuilderFactory())
-                {
-                    var manager = new JerseyManager(factory);
-                    return View(manager.CreateNewJersey(styleId));
-                }
-            }
-            else
-            {
-                return View("Index");
+                var manager = new JerseyManager(factory);
+                return View(manager.CreateNewJersey(styleId));
             }
         }
 
@@ -45,12 +37,12 @@ namespace UniformBuilder.MVC.Controllers
             }
         }
 
-        public ActionResult GetJerseysForTheStyle([DataSourceRequest]DataSourceRequest request, string id )
+        public ActionResult GetJerseysForTheStyle([DataSourceRequest]DataSourceRequest request, string id)
         {
             Guid styleId = Guid.Parse(id);
             using (var factory = new UniformBuilderFactory())
             {
-               var manager = new JerseyManager(factory);
+                var manager = new JerseyManager(factory);
                 return Json(manager.GetAllJerseysForStyleId(styleId).ToDataSourceResult(request));
             }
         }
