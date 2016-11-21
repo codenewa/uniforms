@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Web.Helpers;
 using UniformBuilder.EF;
+using UniformBuilder.Uniform;
 using UniformBuilder.Utility;
 
 namespace UniformBuilder.MVC.Features.Uniform
 {
-    public class JerseyManager: AFeatureManager
+    public class JerseyManager : AFeatureManager
     {
         public JerseyManager(UniformBuilderContext context) : base(context)
         {
@@ -24,6 +25,14 @@ namespace UniformBuilder.MVC.Features.Uniform
                 Id = IdGenerator.NewId(),
                 UniformStyle = Json.Encode(style)
             };
+        }
+
+        public void SaveJersey(JerseyBuilder jerseyBuilder)
+        {
+            Jersey jersey = new Jersey().Create(jerseyBuilder.Name, jerseyBuilder.Description,
+                jerseyBuilder.Identifier, null, null, null, null, null, null);
+            UniformRepository repo = new UniformRepository(DataContext);
+            repo.Add(jersey);
         }
     }
 }

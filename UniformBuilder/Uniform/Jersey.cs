@@ -21,7 +21,7 @@ namespace UniformBuilder.Uniform
         public virtual PlayerNameSelection PlayerName { get; set; }
         public virtual PlayerNumberSelection PlayerNumber { get; set; }
 
-        public virtual Jersey Create(Color color, Color insertColor, TeamNameSelection teamNameSelection, 
+        public virtual Jersey Create(string name, string description, string identifier, Color color, Color insertColor, TeamNameSelection teamNameSelection, 
             PlayerNameSelection playerNameSelection, PlayerNumberSelection numberSelection, User user)
         {
             return new Jersey()
