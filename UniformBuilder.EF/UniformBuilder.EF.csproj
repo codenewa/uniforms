@@ -66,6 +66,14 @@
     <Compile Include="Migrations\201611201908211_AddUsersToStyleAndJersey.Designer.cs">
       <DependentUpon>201611201908211_AddUsersToStyleAndJersey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611212039076_linkJerseyToUniformStyle.cs" />
+    <Compile Include="Migrations\201611212039076_linkJerseyToUniformStyle.Designer.cs">
+      <DependentUpon>201611212039076_linkJerseyToUniformStyle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611212105381_UpdateModel.cs" />
+    <Compile Include="Migrations\201611212105381_UpdateModel.Designer.cs">
+      <DependentUpon>201611212105381_UpdateModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Seeds\ApplicationTypesSeed.cs" />
@@ -100,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611201908211_AddUsersToStyleAndJersey.resx">
       <DependentUpon>201611201908211_AddUsersToStyleAndJersey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611212039076_linkJerseyToUniformStyle.resx">
+      <DependentUpon>201611212039076_linkJerseyToUniformStyle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611212105381_UpdateModel.resx">
+      <DependentUpon>201611212105381_UpdateModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

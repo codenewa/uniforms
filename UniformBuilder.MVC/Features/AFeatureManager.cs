@@ -8,11 +8,13 @@ namespace UniformBuilder.MVC.Features
 {
     public abstract class AFeatureManager
     {
+        protected UniformBuilderFactory Factory { get; }
         protected UniformBuilderContext DataContext { get; }
 
-        protected AFeatureManager(UniformBuilderContext context)
+        protected AFeatureManager(UniformBuilderFactory factory)
         {
-            DataContext = context;
+            Factory = factory;
+            DataContext = Factory.GetDataContext();
         }
     }
 }

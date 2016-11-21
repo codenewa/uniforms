@@ -7,12 +7,12 @@
 
 <h2>Jersey</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("SaveJersey", "Jersey", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>JerseyBuilder</h4>
+        <h4>JerseyBuilder for @Model.StyleName (@Model.UniformStyleId) </h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -38,7 +38,8 @@
                 @Html.ValidationMessageFor(model => model.Identifier, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        @Html.HiddenFor(model => model.UniformStyleId)
+        @Html.HiddenFor(model => model.Id)
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -46,6 +47,34 @@
         </div>
     </div>
 }
+
+@(Html.Kendo().Grid<UniformBuilder.MVC.Features.Uniform.JerseyView>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Bound(v => v.Id);
+            columns.Bound(v => v.Name);
+            columns.Bound(v => v.Description);
+            columns.Bound(v => v.Identifier);
+            columns.Bound(v => v.StyleName);
+            columns.Bound(v => v.StyleId);
+        })
+        .HtmlAttributes(new { style = "height: 550px;" })
+        .Scrollable()
+        .Sortable()
+        .Pageable(pageable => pageable
+            .Refresh(true)
+            .PageSizes(true)
+            .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Model(model => model.Id(m => m.Id))
+            .Read(read => read.Action("GetJerseysForTheStyle", "Jersey",new {id = Model.UniformStyleId}))
+            .PageSize(20)
+        )
+)
+
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")

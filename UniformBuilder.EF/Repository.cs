@@ -31,5 +31,21 @@ namespace UniformBuilder.EF
         {
             DataContext.Set<T>().Remove(entity);
         }
+
+        public IList<T> All()
+        {
+            return DataContext.Set<T>().ToList();
+        }
+
+        public IQueryable<T> Query()
+        {
+            return DataContext.Set<T>() as IQueryable<T>;
+        }
+
+        public void Save()
+        {
+            if(DataContext.ChangeTracker.HasChanges())
+                DataContext.Save();
+        }
     }
 }

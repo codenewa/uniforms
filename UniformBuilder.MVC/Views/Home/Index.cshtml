@@ -35,7 +35,7 @@
         .DataSource(dataSource => dataSource
             .Ajax()
             .Model(model => model.Id(m => m.Id))
-            .Read(read => read.Action("GetAllStyles", "Home"))
+            .Read(read => read.Action("GetAllStyles", "Home", "#:Id#"))
             .PageSize(20)
         )
 )

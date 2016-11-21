@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Kendo.Mvc.Extensions;
+using Kendo.Mvc.UI;
+using UniformBuilder.MVC.Features;
 using UniformBuilder.MVC.Features.Uniform;
 
 namespace UniformBuilder.MVC.Controllers
@@ -15,11 +17,41 @@ namespace UniformBuilder.MVC.Controllers
         [Route("GetNewJersey/{id}")]
         public ActionResult GetNewJersey(string id)
         {
-            var styleId = Guid.Parse(id);
-            using (var context = new UniformBuilder.EF.UniformBuilderContext())
+            
+            Guid styleId;
+            if (Guid.TryParse(id, out styleId))
             {
-                var manager = new JerseyManager(context);
-                return View(manager.CreateNewJersey(styleId));
+                using (var factory = new UniformBuilderFactory())
+                {
+                    var manager = new JerseyManager(factory);
+                    return View(manager.CreateNewJersey(styleId));
+                }
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+
+        [HttpPost]
+        [Route("SaveNewJersey")]
+        public ActionResult SaveJersey(JerseyBuilder builder)
+        {
+            using (var factory = new UniformBuilderFactory())
+            {
+                var manager = new JerseyManager(factory);
+                manager.SaveJersey(builder);
+                return Redirect("GetNewJersey/" + builder.UniformStyleId);
+            }
+        }
+
+        public ActionResult GetJerseysForTheStyle([DataSourceRequest]DataSourceRequest request, string id )
+        {
+            Guid styleId = Guid.Parse(id);
+            using (var factory = new UniformBuilderFactory())
+            {
+               var manager = new JerseyManager(factory);
+                return Json(manager.GetAllJerseysForStyleId(styleId).ToDataSourceResult(request));
             }
         }
     }

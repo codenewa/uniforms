@@ -20,9 +20,10 @@ namespace UniformBuilder.Uniform
         public virtual TeamNameSelection TeamName { get; set; }
         public virtual PlayerNameSelection PlayerName { get; set; }
         public virtual PlayerNumberSelection PlayerNumber { get; set; }
+        public virtual Guid UniformStyleId { get; set; }
 
         public virtual Jersey Create(string name, string description, string identifier, Color color, Color insertColor, TeamNameSelection teamNameSelection, 
-            PlayerNameSelection playerNameSelection, PlayerNumberSelection numberSelection, User user)
+            PlayerNameSelection playerNameSelection, PlayerNumberSelection numberSelection, User user, Guid styleId)
         {
             return new Jersey()
             {
@@ -35,7 +36,11 @@ namespace UniformBuilder.Uniform
                 LastUpdatedBy = user,
                 Creator = user,
                 CreateDate = DateTime.Now,
-                LastUpdateDate = DateTime.Now
+                LastUpdateDate = DateTime.Now,
+                Name = name,
+                Description = description,
+                Identifier = identifier,
+                UniformStyleId = styleId
             };
         }  
     }

@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
+using UniformBuilder.MVC.Features;
 using UniformBuilder.MVC.Features.UniformStyle;
 
 namespace UniformBuilder.MVC.Controllers
@@ -28,9 +29,9 @@ namespace UniformBuilder.MVC.Controllers
 
         public ActionResult GetAllStyles([DataSourceRequest]DataSourceRequest request)
         {
-            using (var context = new UniformBuilder.EF.UniformBuilderContext())
+            using (var factory = new UniformBuilderFactory())
             {
-                var manager = new UniformStylesManager(context);
+                var manager = new UniformStylesManager(factory);
                 return Json(manager.GetAllUniformStyles().ToDataSourceResult(request));
             }
         }

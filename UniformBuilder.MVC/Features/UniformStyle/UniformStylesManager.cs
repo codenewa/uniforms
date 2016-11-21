@@ -10,11 +10,12 @@ namespace UniformBuilder.MVC.Features.UniformStyle
 {
     public class UniformStylesManager : AFeatureManager
     {
-        public UniformStylesManager(UniformBuilderContext context) : base(context) { }
+        public UniformStylesManager(UniformBuilderFactory factory) : base(factory) { }
 
         public IList<Domain.UniformStyle> GetAllUniformStyles()
         {
-            return DataContext.UniformStyles.ToList();
+            var repo = new UniformStyleRepository(DataContext);
+            return repo.All();
         }
     }
 }

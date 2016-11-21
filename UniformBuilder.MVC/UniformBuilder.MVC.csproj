@@ -180,10 +180,12 @@
     <Compile Include="Controllers\JerseyController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Features\AFeatureManager.cs" />
+    <Compile Include="Features\UniformBuilderFactory.cs" />
     <Compile Include="Features\UniformStyle\UniformStyle.cs" />
     <Compile Include="Features\UniformStyle\UniformStylesManager.cs" />
     <Compile Include="Features\Uniform\JerseyBuilder.cs" />
     <Compile Include="Features\Uniform\JerseyManager.cs" />
+    <Compile Include="Features\Uniform\JerseyView.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
