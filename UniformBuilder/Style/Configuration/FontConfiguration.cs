@@ -4,6 +4,6 @@ namespace UniformBuilder.Style.Configuration
 {
     public class FontConfiguration: AConfiguration
     {
-        public virtual IList<FontSizeConfigurationOption> Fonts { get; set; }
+        public virtual IList<FontConfigurationOption> Fonts { get; set; }
     }
 }

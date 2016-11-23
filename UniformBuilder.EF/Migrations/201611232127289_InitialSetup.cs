@@ -127,10 +127,13 @@ namespace UniformBuilder.EF.Migrations
                     {
                         Id = c.Guid(nullable: false),
                         Font_Id = c.Guid(),
+                        FontConfiguration_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Fonts", t => t.Font_Id)
-                .Index(t => t.Font_Id);
+                .ForeignKey("dbo.FontConfigurations", t => t.FontConfiguration_Id)
+                .Index(t => t.Font_Id)
+                .Index(t => t.FontConfiguration_Id);
             
             CreateTable(
                 "dbo.FontConfigurations",
@@ -147,15 +150,12 @@ namespace UniformBuilder.EF.Migrations
                     {
                         Id = c.Guid(nullable: false),
                         FontSize_Id = c.Guid(),
-                        FontConfiguration_Id = c.Guid(),
                         FontSizeConfiguration_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.FontSizes", t => t.FontSize_Id)
-                .ForeignKey("dbo.FontConfigurations", t => t.FontConfiguration_Id)
                 .ForeignKey("dbo.FontSizeConfigurations", t => t.FontSizeConfiguration_Id)
                 .Index(t => t.FontSize_Id)
-                .Index(t => t.FontConfiguration_Id)
                 .Index(t => t.FontSizeConfiguration_Id);
             
             CreateTable(
@@ -172,23 +172,45 @@ namespace UniformBuilder.EF.Migrations
                 c => new
                     {
                         Id = c.Guid(nullable: false),
+                        Name = c.String(),
+                        Description = c.String(),
+                        Identifier = c.String(),
+                        UniformStyleId = c.Guid(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
+                        LastUpdateDate = c.DateTime(nullable: false),
                         BodyColor_Id = c.Guid(),
+                        Creator_Id = c.Guid(),
                         InsertsColor_Id = c.Guid(),
+                        LastUpdatedBy_Id = c.Guid(),
                         PlayerName_Id = c.Guid(),
                         PlayerNumber_Id = c.Guid(),
                         TeamName_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Colors", t => t.BodyColor_Id)
+                .ForeignKey("dbo.Users", t => t.Creator_Id)
                 .ForeignKey("dbo.Colors", t => t.InsertsColor_Id)
+                .ForeignKey("dbo.Users", t => t.LastUpdatedBy_Id)
                 .ForeignKey("dbo.PlayerNameSelections", t => t.PlayerName_Id)
                 .ForeignKey("dbo.PlayerNumberSelections", t => t.PlayerNumber_Id)
                 .ForeignKey("dbo.TeamNameSelections", t => t.TeamName_Id)
                 .Index(t => t.BodyColor_Id)
+                .Index(t => t.Creator_Id)
                 .Index(t => t.InsertsColor_Id)
+                .Index(t => t.LastUpdatedBy_Id)
                 .Index(t => t.PlayerName_Id)
                 .Index(t => t.PlayerNumber_Id)
                 .Index(t => t.TeamName_Id);
+            
+            CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        Type = c.Int(nullable: false),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.PlayerNameSelections",
@@ -460,8 +482,12 @@ namespace UniformBuilder.EF.Migrations
                         Name = c.String(),
                         Description = c.String(),
                         IsAvailable = c.Boolean(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
+                        LastUpdateDate = c.DateTime(nullable: false),
                         BodyColorConfiguration_Id = c.Guid(),
+                        Creator_Id = c.Guid(),
                         InsertsColorConfiguration_Id = c.Guid(),
+                        LastUpdatedBy_Id = c.Guid(),
                         PlayerNameStyle_Id = c.Guid(),
                         PlayerNumberStyle_Id = c.Guid(),
                         Sport_Id = c.Guid(),
@@ -469,13 +495,17 @@ namespace UniformBuilder.EF.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.ColorConfigurations", t => t.BodyColorConfiguration_Id)
+                .ForeignKey("dbo.Users", t => t.Creator_Id)
                 .ForeignKey("dbo.ColorConfigurations", t => t.InsertsColorConfiguration_Id)
+                .ForeignKey("dbo.Users", t => t.LastUpdatedBy_Id)
                 .ForeignKey("dbo.PlayerNameStyles", t => t.PlayerNameStyle_Id)
                 .ForeignKey("dbo.PlayerNumberStyles", t => t.PlayerNumberStyle_Id)
                 .ForeignKey("dbo.Sports", t => t.Sport_Id)
                 .ForeignKey("dbo.TeamNameStyleConfigurations", t => t.TeamNameStyle_Id)
                 .Index(t => t.BodyColorConfiguration_Id)
+                .Index(t => t.Creator_Id)
                 .Index(t => t.InsertsColorConfiguration_Id)
+                .Index(t => t.LastUpdatedBy_Id)
                 .Index(t => t.PlayerNameStyle_Id)
                 .Index(t => t.PlayerNumberStyle_Id)
                 .Index(t => t.Sport_Id)
@@ -489,7 +519,9 @@ namespace UniformBuilder.EF.Migrations
             DropForeignKey("dbo.UniformStyles", "Sport_Id", "dbo.Sports");
             DropForeignKey("dbo.UniformStyles", "PlayerNumberStyle_Id", "dbo.PlayerNumberStyles");
             DropForeignKey("dbo.UniformStyles", "PlayerNameStyle_Id", "dbo.PlayerNameStyles");
+            DropForeignKey("dbo.UniformStyles", "LastUpdatedBy_Id", "dbo.Users");
             DropForeignKey("dbo.UniformStyles", "InsertsColorConfiguration_Id", "dbo.ColorConfigurations");
+            DropForeignKey("dbo.UniformStyles", "Creator_Id", "dbo.Users");
             DropForeignKey("dbo.UniformStyles", "BodyColorConfiguration_Id", "dbo.ColorConfigurations");
             DropForeignKey("dbo.TeamNameStyleConfigurations", "FontSizeConfiguration_Id", "dbo.FontSizeConfigurations");
             DropForeignKey("dbo.TeamNameStyleConfigurations", "FontConfiguration_Id", "dbo.FontConfigurations");
@@ -535,11 +567,13 @@ namespace UniformBuilder.EF.Migrations
             DropForeignKey("dbo.PlayerNameSelections", "Font_Id", "dbo.Fonts");
             DropForeignKey("dbo.PlayerNameSelections", "Color_Id", "dbo.Colors");
             DropForeignKey("dbo.PlayerNameSelections", "ApplicationType_Id", "dbo.ApplicationTypes");
+            DropForeignKey("dbo.Jerseys", "LastUpdatedBy_Id", "dbo.Users");
             DropForeignKey("dbo.Jerseys", "InsertsColor_Id", "dbo.Colors");
+            DropForeignKey("dbo.Jerseys", "Creator_Id", "dbo.Users");
             DropForeignKey("dbo.Jerseys", "BodyColor_Id", "dbo.Colors");
             DropForeignKey("dbo.FontSizeConfigurationOptions", "FontSizeConfiguration_Id", "dbo.FontSizeConfigurations");
-            DropForeignKey("dbo.FontSizeConfigurationOptions", "FontConfiguration_Id", "dbo.FontConfigurations");
             DropForeignKey("dbo.FontSizeConfigurationOptions", "FontSize_Id", "dbo.FontSizes");
+            DropForeignKey("dbo.FontConfigurationOptions", "FontConfiguration_Id", "dbo.FontConfigurations");
             DropForeignKey("dbo.FontConfigurationOptions", "Font_Id", "dbo.Fonts");
             DropForeignKey("dbo.ColorConfigurationOptions", "ColorConfiguration_Id", "dbo.ColorConfigurations");
             DropForeignKey("dbo.ColorConfigurationOptions", "Color_Id", "dbo.Colors");
@@ -551,7 +585,9 @@ namespace UniformBuilder.EF.Migrations
             DropIndex("dbo.UniformStyles", new[] { "Sport_Id" });
             DropIndex("dbo.UniformStyles", new[] { "PlayerNumberStyle_Id" });
             DropIndex("dbo.UniformStyles", new[] { "PlayerNameStyle_Id" });
+            DropIndex("dbo.UniformStyles", new[] { "LastUpdatedBy_Id" });
             DropIndex("dbo.UniformStyles", new[] { "InsertsColorConfiguration_Id" });
+            DropIndex("dbo.UniformStyles", new[] { "Creator_Id" });
             DropIndex("dbo.UniformStyles", new[] { "BodyColorConfiguration_Id" });
             DropIndex("dbo.TeamNameStyleConfigurations", new[] { "FontSizeConfiguration_Id" });
             DropIndex("dbo.TeamNameStyleConfigurations", new[] { "FontConfiguration_Id" });
@@ -597,11 +633,13 @@ namespace UniformBuilder.EF.Migrations
             DropIndex("dbo.Jerseys", new[] { "TeamName_Id" });
             DropIndex("dbo.Jerseys", new[] { "PlayerNumber_Id" });
             DropIndex("dbo.Jerseys", new[] { "PlayerName_Id" });
+            DropIndex("dbo.Jerseys", new[] { "LastUpdatedBy_Id" });
             DropIndex("dbo.Jerseys", new[] { "InsertsColor_Id" });
+            DropIndex("dbo.Jerseys", new[] { "Creator_Id" });
             DropIndex("dbo.Jerseys", new[] { "BodyColor_Id" });
             DropIndex("dbo.FontSizeConfigurationOptions", new[] { "FontSizeConfiguration_Id" });
-            DropIndex("dbo.FontSizeConfigurationOptions", new[] { "FontConfiguration_Id" });
             DropIndex("dbo.FontSizeConfigurationOptions", new[] { "FontSize_Id" });
+            DropIndex("dbo.FontConfigurationOptions", new[] { "FontConfiguration_Id" });
             DropIndex("dbo.FontConfigurationOptions", new[] { "Font_Id" });
             DropIndex("dbo.ColorConfigurationOptions", new[] { "ColorConfiguration_Id" });
             DropIndex("dbo.ColorConfigurationOptions", new[] { "Color_Id" });
@@ -625,6 +663,7 @@ namespace UniformBuilder.EF.Migrations
             DropTable("dbo.NamePlateTypes");
             DropTable("dbo.NamePlateSelections");
             DropTable("dbo.PlayerNameSelections");
+            DropTable("dbo.Users");
             DropTable("dbo.Jerseys");
             DropTable("dbo.FontSizeConfigurations");
             DropTable("dbo.FontSizeConfigurationOptions");

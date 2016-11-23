@@ -7,13 +7,13 @@ namespace UniformBuilder.EF.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addjerseynameAndDescription : IMigrationMetadata
+    public sealed partial class InitialSetup : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addjerseynameAndDescription));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialSetup));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611201854571_addjerseynameAndDescription"; }
+            get { return "201611232127289_InitialSetup"; }
         }
         
         string IMigrationMetadata.Source
