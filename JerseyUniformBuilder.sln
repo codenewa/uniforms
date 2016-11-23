@@ -11,15 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniformBuilder.MVC", "Unifo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ERDs", "ERDs", "{A8A50EE0-EF5E-459A-A3BC-81DABC0B615F}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\ashish.shakya\Desktop\mock ups for UI\uniformbuilder\Configuration Options.png = C:\Users\ashish.shakya\Desktop\mock ups for UI\uniformbuilder\Configuration Options.png
-		C:\Users\ashish.shakya\Desktop\mock ups for UI\uniformbuilder\jersey.png = C:\Users\ashish.shakya\Desktop\mock ups for UI\uniformbuilder\jersey.png
-		C:\Users\ashish.shakya\Desktop\mock ups for UI\uniformbuilder\Style ERD.png = C:\Users\ashish.shakya\Desktop\mock ups for UI\uniformbuilder\Style ERD.png
+		ERDs\Configuration Options.png = ERDs\Configuration Options.png
+		ERDs\jersey.png = ERDs\jersey.png
+		ERDs\Style ERD.png = ERDs\Style ERD.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{77FEB9FC-40C7-4FD1-81B4-66428C4EA786}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\UniformBuilder.mdf = ..\..\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\UniformBuilder.mdf
-		..\..\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\UniformBuilder_log.LDF = ..\..\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\UniformBuilder_log.LDF
+		Database\UniformBuilder.mdf = Database\UniformBuilder.mdf
+		Database\UniformBuilder_log.LDF = Database\UniformBuilder_log.LDF
 	EndProjectSection
 EndProject
 Global
