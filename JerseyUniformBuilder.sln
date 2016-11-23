@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniformBuilder", "UniformBu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniformBuilder.EF", "UniformBuilder.EF\UniformBuilder.EF.csproj", "{A8E3F831-95ED-46D7-AE33-3236E3B9532C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniformBuilder.UnitTests", "UniformBuilder.UnitTests\UniformBuilder.UnitTests.csproj", "{B20913FE-0A57-4BDB-8151-69FBD616DEE4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniformBuilder.MVC", "UniformBuilder.MVC\UniformBuilder.MVC.csproj", "{534F4EDA-25E0-4B02-B482-1420BD346683}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{A8E3F831-95ED-46D7-AE33-3236E3B9532C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8E3F831-95ED-46D7-AE33-3236E3B9532C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8E3F831-95ED-46D7-AE33-3236E3B9532C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B20913FE-0A57-4BDB-8151-69FBD616DEE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B20913FE-0A57-4BDB-8151-69FBD616DEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B20913FE-0A57-4BDB-8151-69FBD616DEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B20913FE-0A57-4BDB-8151-69FBD616DEE4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{534F4EDA-25E0-4B02-B482-1420BD346683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{534F4EDA-25E0-4B02-B482-1420BD346683}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{534F4EDA-25E0-4B02-B482-1420BD346683}.Release|Any CPU.ActiveCfg = Release|Any CPU
